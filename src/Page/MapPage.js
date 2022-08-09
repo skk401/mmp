@@ -1,5 +1,5 @@
 
-import { useState , useEffect } from "react";
+import { useState , useEffect , useRef } from "react";
 import { Card } from "../Components/Card/Card";
 import { Map } from "../Components/Map/Map";
 import datas from './data.json'
@@ -8,12 +8,14 @@ export function GoogleMap() {
     const [coordinates, setCoordinates] = useState({});
     
     const data = datas.Operators;
-    
+
+  
     useEffect(() =>{
         navigator.geolocation.getCurrentPosition(({ coords:{latitude, longitude}}) => {
             setCoordinates({lat:latitude ,lng:longitude})
         })
     },[]);
+
 
     return(<>
         <section className="text-gray-600 body-font relative ">
@@ -44,16 +46,14 @@ export function GoogleMap() {
             </div>
             </form>
           </div>
-        <div className=" flex flex-col overflow-y-scroll h-1/2">
-          <div className="relative mb-4 flex flex-grow">
-            <Card />
+        <div className=" flex flex-col overflow-y-scroll h-1/2 scroll-smooth">
+          {
+            data.map((marker , i) => 
+          <div className="relative mb-4 flex flex-grow" key={i}>
+            AA
+            <Card Name={marker.name} Contact={marker.contact} Address={marker.address} />
           </div>
-          <div className="relative mb-4 flex flex-grow">
-            <Card />
-          </div>
-          <div className="relative mb-4 flex flex-grow">
-            <Card />
-          </div>
+          )}
           
         </div>
     </div>

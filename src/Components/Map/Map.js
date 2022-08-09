@@ -51,21 +51,16 @@ export function Map({coordinates , data}) {
         options={options}
         onClick={onMapClick}
       >
-        {markers.map(marker => <Marker position={{ lat: marker.lat , lng:marker.lng}}/>)}
-        {/* {data?.map((place,i) => (
-                    <div
-                    lat={Number(place.lat)}
-                    lng={Number(place.lng)}
-                    key = {i}
-                    >
-                        {
-                            Number(place.bookings) > 8 ?
-                            <LocationOnIcon color="error" fontSize="large"/>
-                            :
-                            <LocationOnIcon color="success" fontSize="large"/>
-                        }   
-                    </div>
-                ))} */}
+         {/* <Marker position={{ lat: marker.lat , lng:marker.lng}} />  */}
+        {/* {markers.map(marker => console.log(marker))} */}
+        {data.map((marker) => 
+
+        Number(marker.bookings) > 8 ?
+        <Marker position={{ lat:Number(marker.lat) , lng: Number(marker.lng)}} icon="http://maps.google.com/mapfiles/ms/icons/blue-dot.png"/>                
+        :
+                    <Marker position={{ lat: Number(marker.lat) , lng: Number(marker.lng)}}/>         
+        
+                )}
       </GoogleMap>
         </>
     );
