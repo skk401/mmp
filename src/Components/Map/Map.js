@@ -2,7 +2,7 @@ import { useState , useCallback } from "react";
 import {
     GoogleMap,
     useLoadScript,
-    Marker,
+    MarkerF,
     InfoWindow,
   } from "@react-google-maps/api";
 
@@ -23,7 +23,7 @@ import mapStyles from "./mapStyles";
     
     const libraries = ["places"];
     
-export function Map({coordinates , data}) {
+export function Map({coordinates , data , setClick }) {
         const [markers, setMarkers] = useState([])
         const onMapClick = useCallback(
             (event) =>{
@@ -34,14 +34,13 @@ export function Map({coordinates , data}) {
                     }])
                 } , []
                 )
-                
                 const { isLoaded, loadError } = useLoadScript({
                     googleMapsApiKey: "AIzaSyAOGN3N9OdXbI1kCtShIGmIUWrUYhX9tqs",
         libraries,
       });
       if (loadError) return "Error";
       if (!isLoaded) return "Loading...";
-    
+      
     return(
         <>
         <GoogleMap
@@ -51,14 +50,13 @@ export function Map({coordinates , data}) {
         options={options}
         onClick={onMapClick}
       >
-         {/* <Marker position={{ lat: marker.lat , lng:marker.lng}} />  */}
+         {/* <Marker position={{ lat: markers.lat , lng:markers.lng}} />  */}
         {/* {markers.map(marker => console.log(marker))} */}
-        {data.map((marker) => 
-
+        {data.map((marker , i) => 
         Number(marker.bookings) > 8 ?
-        <Marker position={{ lat:Number(marker.lat) , lng: Number(marker.lng)}} icon="http://maps.google.com/mapfiles/ms/icons/blue-dot.png"/>                
+        <MarkerF position={{ lat:Number(marker.lat) , lng: Number(marker.lng)}} icon="http://maps.google.com/mapfiles/ms/icons/red-dot.png" onClick={() =>setClick(i)}/>                
         :
-                    <Marker position={{ lat: Number(marker.lat) , lng: Number(marker.lng)}}/>         
+        <MarkerF position={{ lat:Number(marker.lat) , lng: Number(marker.lng)}} icon="http://maps.google.com/mapfiles/ms/icons/blue-dot.png" onClick={() =>setClick(i)}/>                
         
                 )}
       </GoogleMap>

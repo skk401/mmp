@@ -2,14 +2,14 @@ export function Card({Name , Address , Contact}) {
     return (
         <>
         
-        <div className="max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg ">
+        <div className="min-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg w-full">
             <img className="object-cover object-center w-full h-40" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="avatar"/>
             
 
             <div className="px-6 py-4">
                 <h1 className="text-xl font-semibold text-gray-800 ">{Name}</h1>
 
-                <p className="py-2 text-gray-700 ">Full Stack maker & UI / UX Designer , love hip hop music Author of Building UI.</p>
+                {/* <p className="py-2 text-gray-700 ">Full Stack maker & UI / UX Designer , love hip hop music Author of Building UI.</p> */}
                 
                 {/* <div className="flex items-center mt-4 text-gray-700 ">
                     <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
