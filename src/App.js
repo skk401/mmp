@@ -8,6 +8,7 @@ import OperatorDashboard from "./Page/OperatorDashboard";
 import { Footer } from "./Components/Footer";
 import Signup from './Page/Signup';
 import Registration from './Components/Registration';
+import UserDashboard from './Page/UserDashboard';
 function App() {
   
   return (
@@ -19,6 +20,7 @@ function App() {
     <Route exact path = "/Signup" element = {<Signup/>} />
     <Route exact path = "/Registration/Booking" element = {<GoogleMap/>} />
     <Route exact path = "/Login/OperatorDashboard" element = {<OperatorDashboard/>} />
+    <Route exact path = "/Login/UserDashboard" element = {<UserDashboard/>} />
     <Route exact path = "/Registration" element = {<Registration />} />
     </Routes>
     <Footer/>

@@ -14,7 +14,7 @@ const Registration = () => {
   return (
     <>
     {/* <Navbar /> */}
-    <div className='grid grid-1 sm:grid-cols-2 h-screen w-700'>
+    <div className='grid grid-1 sm:grid-cols-2 max-h-fit mb-10 w-700'>
     <div className='hidden sm:block'>
         {/* <img className=' w-100 h-auto object-cover ' src={img4} alt="" /> */}
         <img className=' mt-40  ml-20 w-100 h-auto object-cover ' src={styme} alt="" />
