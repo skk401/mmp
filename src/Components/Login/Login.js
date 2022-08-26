@@ -1,7 +1,6 @@
 import { t } from 'i18next';
 import React from 'react'
 import { useState } from 'react';
-
 import {useTranslation} from "react-i18next"
 import { Link , useNavigate } from 'react-router-dom';
 import axios from "axios";
@@ -20,10 +19,9 @@ function LoginComponent() {
       const onFinish = async (e) => {
         try {
        //   dispatch(showLoading());
-       e.preventDefault();
-       console.log({data});   
+       e.preventDefault();   
        const response = await axios.post("http://localhost:5000/api/user/login", data);
-    
+            console.log(data);
          // dispatch(hideLoading());
           if (response.data.success) {
           alert(response.data.message);
