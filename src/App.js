@@ -9,6 +9,9 @@ import { Footer } from "./Components/Footer";
 import Signup from './Page/Signup';
 import Registration from './Components/Registration';
 import UserDashboard from './Page/UserDashboard';
+import Update from './Components/Update';
+import DirectionMap from './Page/DirectionMap';
+import OTP from './Components/OTP';
 function App() {
   
   return (
@@ -19,9 +22,13 @@ function App() {
     <Route exact path = "/Login" element = {<Login/>} />
     <Route exact path = "/Signup" element = {<Signup/>} />
     <Route exact path = "/Registration/Booking" element = {<GoogleMap/>} />
-    <Route exact path = "/Login/OperatorDashboard" element = {<OperatorDashboard/>} />
+    <Route exact path = "/OperatorDashboard" element = {<OperatorDashboard/>} />
     <Route exact path = "/Login/UserDashboard" element = {<UserDashboard/>} />
     <Route exact path = "/Registration" element = {<Registration />} />
+    <Route exact path = "/Update" element = {<Update />} />
+    <Route exact path = "/DirectionMap" element = {<DirectionMap />} />
+    
+    <Route exact path = "/OTP" element = {<OTP />} />
     </Routes>
     <Footer/>
     </>

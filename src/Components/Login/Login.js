@@ -3,16 +3,40 @@ import React from 'react'
 import { useState } from 'react';
 
 import {useTranslation} from "react-i18next"
-
+import { Link , useNavigate } from 'react-router-dom';
+import axios from "axios";
 function LoginComponent() {
 
     const {t,i18next}=useTranslation();
-    
-    // Email 
-    const [email, setemail] = useState("");
-    // Password
-    const [pass, setPass] = useState("");
+    const navigate = useNavigate();
+    const [data, setData] = useState({
+          email: "",
+          password: ""
+      });
+    const handleChange = ({ currentTarget: input }) => {
+          setData({ ...data, [input.name]: input.value });
+      };
 
+      const onFinish = async (e) => {
+        try {
+       //   dispatch(showLoading());
+       e.preventDefault();
+       console.log({data});   
+       const response = await axios.post("http://localhost:5000/api/user/login", data);
+    
+         // dispatch(hideLoading());
+          if (response.data.success) {
+          alert(response.data.message);
+            navigate("/Login/UserDashboard");
+          } else {
+           alert(response.data.message);
+          }
+        } catch (error) {
+         // dispatch(hideLoading());
+        alert("Something went wrong");
+        }
+      };
+    
 
   return (
     <>
@@ -38,21 +62,21 @@ function LoginComponent() {
                     </div>
 
                     <div className="mt-8">
-                        <form onSubmit="#">
+                        <form onSubmit={(e)=>onFinish(e)}>
                             <div>
                                 <label for="email" className="block mb-2 text-sm text-gray-600 ">{t('Email Address')}</label>
-                                <input type="email" name="email" id="email" placeholder="example@example.com" className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md   focus:border-amber-500  focus:ring-amber-500 focus:outline-none focus:ring focus:ring-opacity-40 required" 
-                                onChange={(e) => setemail(e.target.value)}/>
+                                <input type="email" name="email" id="email" placeholder="" className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md   focus:border-amber-500  focus:ring-amber-500 focus:outline-none focus:ring focus:ring-opacity-40 required" 
+                                onChange={handleChange}/>
                             </div>
 
                             <div className="mt-6">
                                 <div className="flex justify-between mb-2">
                                     <label for="password" className="text-sm text-gray-600">{t('Password')}</label>
-                                    <a href="#" className="text-sm text-gray-400 focus:text-amber-600 hover:text-amber-600 hover:underline">Forgot password?</a>
+                                    <a href="#" className="text-sm text-gray-400 focus:text-amber-600 hover:text-amber-600 hover:underline">{t('Forgot password?')}</a>
                                 </div>
 
-                                <input type="password" name="password" id="password" placeholder="Your Password" className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md  focus:border-amber-500  focus:ring-amber-500 focus:outline-none focus:ring focus:ring-opacity-40 required" 
-                                onChange={(e) => setPass(e.target.value)}/>
+                                <input type="password" name="password" id="password" placeholder="" className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md  focus:border-amber-500  focus:ring-amber-500 focus:outline-none focus:ring focus:ring-opacity-40 required" 
+                                onChange={handleChange}/>
                             </div>
 
                             <div className="mt-6">
@@ -62,6 +86,7 @@ function LoginComponent() {
                                     >
                                     {t('Sign in')}
                                 </button>
+                               
                             </div>
 
                         </form>

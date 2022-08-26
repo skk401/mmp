@@ -60,7 +60,7 @@ export const Footer = () => {
               </a>
             </div>
             <div className="flex">
-              <p className="mr-1 text-gray-800">Address:</p>
+              <p className="mr-1 text-gray-800">{t('Address:')}</p>
               <a
                 href="https://www.google.com/maps"
                 target="_blank"
@@ -105,7 +105,7 @@ export const Footer = () => {
               </a>
             </div>
             <p className="mt-4 text-sm text-gray-500">
-              You can also follow us on the twitter, Instagram and facebook for the new updates related to the aadhar. 
+              {t('You can also follow us on the twitter, Instagram and facebook for the new updates related to the aadhar.')} 
             </p>
           </div>
         </div>

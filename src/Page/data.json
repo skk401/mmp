@@ -1,38 +1,39 @@
 {
     "Operators" : [
         {
-            "name" : "ABCD",
+            "name" : "Ankur Rajput",
             "contact" : 123456789,
             "address" : "K.S. Layout",
-            "lat" : "12.898773",
-            "lng" : "77.576408",
+            "lat" : 17.385044,
+            "lng" : 78.486671,
             "bookings" : "9",
             "ratings" : 4.0
         },
         {
-            "name" : "DEF",
+            "name" : "Avinash Kumar",
             "contact" : 126856789,
-            "address" : "Jayanagar",
-            "lat" : "12.898773",
-            "lng" : "77.676408",
+            "address" : "Ghatkesar",
+            "lat" : 17.452900,
+            "lng" : 78.679100,
             "bookings" : "3",
-            "ratings" : 5.0
+            "ratings" : 5.0,
+            "Time" : ["5 : 30 PM" , "6 : 30 PM"]
         },
         {
-            "name" : "STCQ",
+            "name" : "Alankar Saxena",
             "contact" : 7894561230,
-            "address" : "RV Road",
-            "lat" : "12.898773",
-            "lng" : "77.776408",
+            "address" : "Ghatkesar",
+            "lat" : 17.485390,
+            "lng" : 78.697358,
             "bookings" : "5",
             "ratings" : 2.0
         },
         {
-            "name" : "FGHI",
+            "name" : "Kartikeya Sharma",
             "contact" : 125556789,
-            "address" : "K.S. Layout",
-            "lat" : "12.998773",
-            "lng" : "77.576408",
+            "address" : "Ghatkesar",
+            "lat" : 17.480993,
+            "lng" : 78.706427,
             "bookings" : "9",
             "ratings" : 3.0
         }

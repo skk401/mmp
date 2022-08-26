@@ -36,7 +36,7 @@ function Header() {
                 href="/"
                 className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-amber-500 hover:bg-amber-700 focus:shadow-outline focus:outline-none"
               >
-               <Link to= "./Login"> {t('LogIn')}</Link>
+               <Link to= "./Login"> {t('Sign in')}</Link>
               </a>
               {/* <a
                 href="/"

@@ -3,6 +3,7 @@ import POA from "./Dialog/POA";
 import RDocuments from "./RDocuments";
 import POR from "./Dialog/POR";
 import DOB from "./Dialog/DOB";
+import {Link} from "react-router-dom"
 export const Layout = () => {
     return (
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -27,8 +28,11 @@ export const Layout = () => {
                 <h2 className="text-amber-500 text-2xl text-center font-sans font-bold tracking-light">New</h2>
                  
                  <div className="border-2 rounded shadow-md px-4 border-amber-400">
-                    <p className="text-lg font-md font-semibold text-gray-700 mt-6 mx-20">These are the documents you'll need</p>
+                    <p className="ml-20 text-lg font-md font-semibold text-gray-700 mt-6 mx-20">These are the documents you'll need</p>
                    
+                    <button className='ml-44 mt-10 border w-44 my-5 py-2 bg-amber-600 hover:bg-amber-700 text-white text-xl rounded-2xl'>
+                    <Link to="/Registration">New</Link>
+                    </button>
                     <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto flex flex-wrap">
     <div class="flex relative pt-10 pb-5 sm:items-center md:w-2/3 mx-auto">
@@ -90,6 +94,10 @@ export const Layout = () => {
                  
                  <div className="border-2 rounded shadow-md px-4 border-amber-400 pb-10">
                     <p className="text-lg font-md font-semibold text-gray-700 mt-6 mx-10">You can only change your Name, DOB/Age, Address, Relationship, Documents, Introducer/HOF details only.</p>
+                    <button className='ml-44 border w-40 my-5 py-2 bg-amber-600 hover:bg-amber-700 text-white text-xl rounded-2xl'>
+                    <Link to="/update">Update</Link>
+                    </button>
+
                    <RDocuments/>
                  </div>
             </div>

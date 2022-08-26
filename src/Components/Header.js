@@ -5,12 +5,10 @@ import {Link} from "react-router-dom";
 import i18next from "../i18n"
 import {useTranslation} from "react-i18next"
 
-const changeLanguage = (ln)=>{
-  return ()=>{
-    i18next.changeLanguage(ln)
-    console.log('lanuage ch to ${ln}');
-  };
-};
+const changeLanguageHandler = (e) => {
+  const languageValue = e.target.value
+  i18next.changeLanguage(languageValue);
+}
 
 export const Navbar = ({headerRef, statsRef , pricingRef}) => {
 
@@ -77,11 +75,15 @@ export const Navbar = ({headerRef, statsRef , pricingRef}) => {
             </li>
 
 
-            <div>
-                    <button class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-amber-600" onClick={changeLanguage('en')}>{t('English')}</button>
-                    <span>/</span>
-                    <button class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-amber-600" onClick={changeLanguage('hi')}>{t('Hindi')}</button>
-            </div>
+            <select className="custom-select" style={{width: 100}} onChange={changeLanguageHandler}>
+                    <option value="en" >English</option>
+        <option value="hi" >हिन्दी</option>
+        <option value="ka" >ಕನ್ನಡ</option>
+        <option value="te" >తెలుగు</option>
+        <option value="ba">বাংলা</option>
+        
+
+      </select>
           
           </ul>
           
@@ -94,17 +96,17 @@ export const Navbar = ({headerRef, statsRef , pricingRef}) => {
               title="Sign in"
               class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-amber-600"
             >
-             <Link to="/Signup">{t('Sign in')}</Link>
+             <Link to="/LogIn">{t('Sign in')}</Link>
             </a>
           </li>
           <li>
             <a
-              href="/"
+              href="/SignUp"
               class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-amber-600 hover:bg-amber-800 focus:shadow-outline focus:outline-none"
               aria-label="Sign up"
               title="Sign up"
             >
-            <Link to="/Registration">{t('Registration')}</Link> 
+            <Link to="/SignUp">{t('Registration')}</Link> 
             </a>
           </li>
         </ul>
@@ -138,13 +140,13 @@ export const Navbar = ({headerRef, statsRef , pricingRef}) => {
                     <a
                       href="/"
                       aria-label="Company"
-                      title="AADHAR"
+                      title="AADHAAR"
                       class="inline-flex items-center"
                     >
                         
                      <img className="h-10 w-10 sm:h-10" src= {uidai} alt="" />
                       <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                        {t('AADHAR')}
+                        {t('AADHAAR')}
                       </span>
                     </a>
                   </div>
@@ -217,11 +219,14 @@ export const Navbar = ({headerRef, statsRef , pricingRef}) => {
                       </a>
                     </li>
                 
-                    <div>
-                    <button class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-amber-600" onClick={changeLanguage('en')}>{t('English')}</button>
-                    <span>/</span>
-                    <button class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-amber-600" onClick={changeLanguage('hi')}>{t('Hindi')}</button>
-                    </div>
+                    <select className="custom-select" style={{width: 100}} onChange={changeLanguageHandler}>
+                    <option value="en" >English</option>
+        <option value="hi" >हिन्दी</option>
+        <option value="ka" >ಕನ್ನಡ</option>
+        <option value="te" >తెలుగు</option>
+        
+
+      </select>
 
 
                     <li>

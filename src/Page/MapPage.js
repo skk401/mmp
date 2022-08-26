@@ -52,7 +52,7 @@ export function GoogleMap() {
             <h1 className="text-slate-600 font-semibold text">{t('List of operators near you')}</h1>
           </div>
           <div className="relative mb-4">
-          <form class="w-full max-w-lg">
+          {/* <form class="w-full max-w-lg">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
               {t('Name')}
             </label>
@@ -62,13 +62,13 @@ export function GoogleMap() {
             {t('Search')}  
             </button>
             </div>
-            </form>
+            </form> */}
           </div>
         <div className=" flex flex-col overflow-y-scroll scroll-smooth max-h-screen" id="scroll">
           { 
             data.map((marker , i) => 
           <div className="relative mb-4 flex flex-grow" id={i}>
-            <Card Name={marker.name} Contact={marker.contact} Address={marker.address} />
+            <Card Name={marker.name} Contact={marker.contact} Address={marker.address} Time={marker.Time}  Rating={marker.ratings}/>
           </div>
           )}
       

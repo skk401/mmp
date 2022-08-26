@@ -3,7 +3,9 @@ import img3 from '../../assets/approval.png'
 import img4 from '../../assets/location.png'
 import img5 from '../../assets/back-in-time.png'
 import flag from '../../assets/flag.jpg'
+import {useTranslation} from "react-i18next"
 export const Feature = () => {
+  const {t,i18next}=useTranslation();
     return (
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
@@ -32,9 +34,9 @@ export const Feature = () => {
                   height="24"
                 />
               </svg>
-              <span className="relative">The</span>
+              <span className="relative">{t('The')}</span>
             </span>{' '}
-            Services
+            {t('Services')}
           </h2>
           {/* <p className="text-base text-gray-700 md:text-lg">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -60,9 +62,9 @@ export const Feature = () => {
                 </svg> */}
                 <img src={img2} />
               </div>
-              <h6 className="mb-2 font-semibold leading-5">Slot Booking</h6>
+              <h6 className="mb-2 font-semibold leading-5">{t('Slot Booking')}</h6>
               <p className="mb-3 text-sm text-gray-900">
-              You have to just Book an online time and date slot as per your convenience
+              {t('You have to just Book an online time and date slot as per your convenience')}
               </p>
             </div>
             <a
@@ -70,7 +72,7 @@ export const Feature = () => {
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-amber-700 hover:text-deep-purple-800"
             >
-              Learn more
+              {t('Learn more')}
             </a>
           </div>
           <div className="flex flex-col justify-between p-5 border rounded shadow-sm">
@@ -78,9 +80,9 @@ export const Feature = () => {
               <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
                <img src= {img3}/>
               </div>
-              <h6 className="mb-2 font-semibold leading-5">Document Verification </h6>
+              <h6 className="mb-2 font-semibold leading-5">{t('Document Verification')} </h6>
               <p className="mb-3 text-sm text-gray-900">
-              The operator will come home and verify all the details and confirm your AADHAR updates
+              {t('The operator will come home and verify all the details and confirm your AADHAR updates')}
               </p>
             </div>
             <a
@@ -88,7 +90,7 @@ export const Feature = () => {
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-amber-700 hover:text-deep-purple-800"
             >
-              Learn more
+              {t('Learn more')}
             </a>
           </div>
           <div className="flex flex-col justify-between p-5 border rounded shadow-sm">
@@ -96,9 +98,9 @@ export const Feature = () => {
               <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
                <img src={img4} />
               </div>
-              <h6 className="mb-2 font-semibold leading-5">Location</h6>
+              <h6 className="mb-2 font-semibold leading-5">{t('Location')}</h6>
               <p className="mb-3 text-sm text-gray-900">
-                You can choose you location as per your convenience
+                {t('You can choose you location as per your convenience')}
               </p>
             </div>
             <a
@@ -106,7 +108,7 @@ export const Feature = () => {
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-amber-700 hover:text-deep-purple-800"
             >
-              Learn more
+              {t('Learn more')}
             </a>
           </div>
           <div className="flex flex-col justify-between p-5 border rounded shadow-sm">
@@ -114,9 +116,9 @@ export const Feature = () => {
               <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
                 <img src={img5} />
               </div>
-              <h6 className="mb-2 font-semibold leading-5">Set Timing</h6>
+              <h6 className="mb-2 font-semibold leading-5">{t('Set Timing')}</h6>
               <p className="mb-3 text-sm text-gray-900">
-               You can pick your time for the operator to come.
+               {t('You can pick your time for the operator to come.')}
               </p>
             </div>
             <a
@@ -124,7 +126,7 @@ export const Feature = () => {
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-amber-700 hover:text-deep-purple-800"
             >
-              Learn more
+              {t('Learn more')}
             </a>
           </div>
         </div>

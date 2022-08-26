@@ -1,8 +1,43 @@
 import { t } from 'i18next';
-import React from 'react'
-import {Link} from "react-router-dom"
+import React, { useState } from 'react'
+import {Link, useNavigate} from "react-router-dom"
+import axios from "axios";
+import {useTranslation} from "react-i18next"
 
 function Signup() {
+  const navigate = useNavigate();
+  const [data, setData] = useState({
+		name: "",
+		email: "",
+		password: "",
+	});
+  const handleChange = ({ currentTarget: input }) => {
+		setData({ ...data, [input.name]: input.value });
+	};
+  const onFinish = async (e) => {
+    try {
+   //   dispatch(showLoading());
+   e.preventDefault();
+   console.log({data});   
+   const response = await axios.post("http://localhost:5000/api/user/signup", data);
+
+     // dispatch(hideLoading());
+      if (response.data.success) {
+      alert(response.data.message);
+        navigate("/Login/UserDashboard");
+      } else {
+       alert(response.data.message);
+      }
+    } catch (error) {
+     // dispatch(hideLoading());
+    alert("Something went wrong");
+    }
+  };
+
+
+
+
+  const {t,i18next}=useTranslation();
   return (
   <>
   
@@ -32,10 +67,10 @@ function Signup() {
         </div>
 
         <div class="mt-10">
-          <form action="#">
+          <form onSubmit={(e) =>onFinish(e)}>
             <div class="flex flex-col mb-5">
               <label
-                for="email"
+                for="name"
                 class="mb-1 text-xs tracking-wide text-gray-600"
                 >{t('Name')}:</label
               >
@@ -57,9 +92,9 @@ function Signup() {
                 </div>
 
                 <input
-                  id="email"
-                  type="email"
-                  name="email"
+                  id="name"
+                  type="text"
+                  name="name"
                   class="
                     text-sm
                     placeholder-gray-500
@@ -71,7 +106,9 @@ function Signup() {
                     py-2
                     focus:outline-none focus:border-amber-600
                   "
-                  placeholder="Enter your name"
+                  placeholder={t('Enter your name')
+                  }
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -113,7 +150,8 @@ function Signup() {
                     py-2
                     focus:outline-none focus:border-amber-600
                   "
-                  placeholder="Enter your email"
+                  placeholder={t('Enter your email')}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -157,7 +195,8 @@ function Signup() {
                     py-2
                     focus:outline-none focus:border-amber-600
                   "
-                  placeholder="Enter your password"
+                  placeholder={t('Enter your password')}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -183,7 +222,7 @@ function Signup() {
                   ease-in
                 "
               >
-                <span class="mr-2 uppercase">Sign Up</span>
+                <span class="mr-2 uppercase">{t('Sign up')}</span>
                 <span>
                   <svg
                     class="h-6 w-6"
